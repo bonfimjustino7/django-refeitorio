@@ -1,2 +1,6 @@
 venvLinux/
 .idea/
+venv/
+.vscode/
+estoque/__pycache__
+estoque/migrations/__pycache__
