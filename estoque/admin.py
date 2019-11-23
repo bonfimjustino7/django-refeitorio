@@ -17,8 +17,9 @@ class TipoMovimentacaoAdmin(admin.ModelAdmin):
 @register(Movimentacao)
 class MovimentacaoAdmin(admin.ModelAdmin):
     list_display = ('produto', 'tipo_movimentacao', 'data', 'quantidade')
-    change_list_template = 'admin/estoque/change_list.html'
+    change_list_template = 'admin/estoque/movimentacao/change_list.html'
     list_filter = ('produto__nome_produto', )
+    search_fields = ('produto__nome_produto', )
 
     def get_saldo(self):
         movs = Movimentacao.objects.all()
