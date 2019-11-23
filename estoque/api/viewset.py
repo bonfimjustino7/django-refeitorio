@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.viewsets import ModelViewSet
 from estoque.models import Produto
 from estoque.api.serializers import *
@@ -20,7 +21,7 @@ class MovimetacaoViewSet(ModelViewSet):
 
     #Impedindo de movimentação ser atualizada ou excluida
     def update(self, request, *args, **kwargs):
-        return Response({'msg': 'Movimentação não pode ser atualizada ou excluida, faça uma nova movimentação como estorno.'})
+        return Response({'msg': 'Movimentação não pode ser atualizada ou excluida, faça uma nova movimentação como estorno.'}, status=status.HTTP_401_UNAUTHORIZED)
 
     def destroy(self, request, *args, **kwargs):
-        return Response({'msg': 'Movimentação não pode ser atualizada ou excluida, faça uma nova movimentação como estorno.'})
+        return Response({'msg': 'Movimentação não pode ser atualizada ou excluida, faça uma nova movimentação como estorno.'}, status=status.HTTP_401_UNAUTHORIZED)
