@@ -39,17 +39,5 @@ class Movimentacao(models.Model):
     class Meta:
         verbose_name_plural = 'Movimentações'
 
-    # @property
-    # def get_saldo(self):
-    #     movs = Movimentacao.objects.all()
-    #     saldo = 0
-    #     for m in movs:
-    #         saldo += m.quantidade * m.tipo_movimentacao.fator
-    #     return saldo
-    #
-    # def saldo(self):
-    #     return mark_safe('{}'.format(self.get_saldo))
-    # saldo.short_description = 'Saldo Final'
-
     def __str__(self):
         return str(self.produto) + ' - ' + str(self.tipo_movimentacao) + ' - ' + str(self.quantidade) + ' - ' + str(self.data)
