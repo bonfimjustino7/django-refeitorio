@@ -4,3 +4,5 @@ venv/
 .vscode/
 estoque/__pycache__
 estoque/migrations/__pycache__
+*.sqlite3
+db.sqlite3

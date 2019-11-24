@@ -1,5 +1,7 @@
 from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 from estoque.models import Produto
 from estoque.api.serializers import *
 
@@ -18,6 +20,8 @@ class TipoMovimentacaoViewSet(ModelViewSet):
 class MovimetacaoViewSet(ModelViewSet):
     queryset = Movimentacao.objects.all()
     serializer_class = MovimentacaoSerializers
+    permission_classes = [IsAuthenticated,]
+    authentication_classes = [TokenAuthentication]
 
     #Impedindo de movimentação ser atualizada ou excluida
     def update(self, request, *args, **kwargs):
