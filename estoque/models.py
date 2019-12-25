@@ -39,5 +39,14 @@ class Movimentacao(models.Model):
     class Meta:
         verbose_name_plural = 'Movimentações'
 
+    @property
+    def tipo(self):
+        return str(self.produto) + ' - ' + str(self.tipo_movimentacao)
+
     def __str__(self):
         return str(self.produto) + ' - ' + str(self.tipo_movimentacao) + ' - ' + str(self.quantidade) + ' - ' + str(self.data)
+
+    def save(self, *args, **kwargs):
+        if self.tipo_movimentacao.nome_movimentacao == 'Saida':
+            self.quantidade = self.quantidade * self.tipo_movimentacao.fator
+        super(Movimentacao, self).save(*args, **kwargs)

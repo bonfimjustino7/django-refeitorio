@@ -21,3 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls))
 ]
+
+admin.site.site_header = 'Refeitório Admin'
+admin.site.site_title = 'Administração do Refeitório'

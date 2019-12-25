@@ -26,8 +26,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
+#DEBUG = True
 
-ALLOWED_HOSTS = ['refeitorio.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['refeitorio.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -140,5 +141,5 @@ DATE_INPUT_FORMATS = ('%d/%m/%Y')
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
     "http://127.0.0.1:9000",
-    "https://refeitorio.herokuapp.com/"
+    "http://refeitorio.herokuapp.com"
 ]

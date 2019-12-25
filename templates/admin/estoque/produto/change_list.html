@@ -76,7 +76,6 @@
           {% if action_form and actions_on_bottom and cl.show_admin_actions %}{% admin_actions %}{% endif %}
       {% endblock %}
       {% block pagination %}
-           <p class="paginator"> Saldo Final: {{ total }}</p>
           {% pagination cl %}
       {% endblock %}
 
@@ -85,18 +84,18 @@
     </div>
 
   </div>
-{#    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>#}
-{#    <script>#}
-{#        function cont(){#}
-{#            var d = document.querySelectorAll('table#result_list tbody tr').length#}
-{#            return d#}
-{#        }#}
-{#        vetor = []#}
-{#        for (var i = 1; i <= cont(); i++){#}
-{#            var valor = document.querySelector(`tr.row${i} a`)#}
-{#            var ref = valor.href#}
-{#            ref.split('')#}
-{#            //$(valor).prop('href', '')#}
-{#        }#}
-{#    </script>#}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+        function cont() {
+            var d = document.querySelectorAll('table#result_list tbody tr').length
+            return d
+        }
+        for (var i = 1; i <= cont(); i++){
+            var valor = document.querySelector(`tr.row${i} a`)
+            var ref = $(valor).text()
+            //ref = ref.split('produto')[1].split('/')[1]
+            $(valor).prop('href', `/admin/estoque/movimentacao/?q=${ref}`)
+           // console.log(ref)
+        }
+    </script>
 {% endblock %}

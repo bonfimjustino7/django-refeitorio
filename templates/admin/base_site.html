@@ -1,0 +1,46 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrastyle %}
+    <style>
+        #header{
+            background-color: #3f946c;
+        }
+      #branding h1, #branding h1 a:link, #branding h1 a:visited {
+            color: #fff;
+       }
+      .module h2, .module caption, .inline-group h2{
+             background-color: #3f946c;
+      }
+      a:link, a:visited {
+        color: #3f946c;
+        text-decoration: none;
+      }
+      div.breadcrumbs, div.selector-chosen h2{
+        background: #79c899;
+        color: #ffffc1;
+      }
+      .button, input[type=submit], input[type=button], .submit-row input, a.button{
+          background: #79c899;
+          color: #fff;
+      }
+        .button.default, input[type=submit].default, .submit-row input.default {
+          background: #42865a;
+        }
+        .button.default:active, input[type=submit].default:active, .button.default:focus,  input[type=submit]:hover, input[type=submit].default:focus, .button.default:hover, input[type=submit].default:hover {
+             background: #206750;
+
+        }
+        .addlink:hover{
+            background-color: #206750 !important;
+
+        }
+    </style>
+{% endblock %}
